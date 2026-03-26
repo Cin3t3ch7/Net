@@ -28,11 +28,18 @@ pool.on("error", (err) => {
 // Safe to run on every boot — all statements use IF NOT EXISTS / ON CONFLICT.
 
 async function runMigrations(client: PoolClient): Promise<void> {
-  const migrationsDir = path.resolve(__dirname, "../db/migrations")
-
-  // Gracefully skip if folder doesn't exist
+  // In dev (ts-node), __dirname is src/db. In prod (node dist/), __dirname is dist/db.
+  // Since tsc doesn't copy .sql files by default, we fallback to reading directly from src/
+  let migrationsDir = path.resolve(__dirname, "../db/migrations")
+  
   if (!fs.existsSync(migrationsDir)) {
-    logger.warn({ migrationsDir }, "Migrations directory not found — skipping")
+    // Fallback to the source directory in production
+    migrationsDir = path.resolve(__dirname, "../../src/db/migrations")
+  }
+
+  // Gracefully skip if it completely doesn't exist
+  if (!fs.existsSync(migrationsDir)) {
+    logger.warn({ migrationsDir }, "Migrations directory not found in dist or src — skipping")
     return
   }
 
