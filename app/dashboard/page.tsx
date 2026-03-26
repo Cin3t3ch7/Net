@@ -32,49 +32,49 @@ const options = [
     icon: Link2,
     title: "Link de Restablecimiento",
     description: "Recibe un enlace directo para restablecer tu contraseña o recuperar el acceso a tu cuenta de Netflix de forma rápida y segura.",
-    image: "/modern-house-with-digital-lock-code-floating-dark-.jpg"
+    image: "/Reset.png"
   },
   {
     id: "codigo-inicio-sesion",
     icon: Key,
     title: "Código de Inicio de Sesión",
     description: "Genera un código numérico temporal para iniciar sesión en un televisor u otro dispositivo sin necesidad de ingresar tu contraseña manualmente.",
-    image: "/device-updating-modern-interface-refresh-dark-tech.jpg"
+    image: "/codigoInicioSesion.png"
   },
   {
     id: "codigo-cerrar-sesiones",
     icon: LogOut,
     title: "Código de Cerrar Sesiones",
     description: "Desconecta tu cuenta de Netflix de todos los dispositivos activos usando un código de seguridad para proteger tu perfil inmediatamente.",
-    image: "/smart-tv-connected-streaming-icons-modern-dark.jpg"
+    image: "/codigoCerrarSesion.png"
   },
   {
     id: "actualizar-hogar",
     icon: RefreshCw,
     title: "Actualiza Hogar",
     description: "Se usa para establecer o cambiar la ubicación principal donde se consume Netflix.",
-    image: "/device-updating-modern-interface-refresh-dark-tech.jpg"
+    image: "/ActualizarHoga.png"
   },
   {
     id: "codigo-hogar",
     icon: Home,
     title: "Código Hogar",
     description: "Es una medida de seguridad para verificar un televisor. Netflix genera un código en la TV que debes ingresar desde tu teléfono.",
-    image: "/modern-house-with-digital-lock-code-floating-dark-.jpg"
+    image: "/CodigoHogarEstoy.png"
   },
   {
     id: "estoy-de-viaje",
     icon: Plane,
     title: "Estoy de Viaje",
     description: "Permite usar la cuenta temporalmente fuera de tu ubicación principal. Recibes un código de acceso temporal válido por ~30 días.",
-    image: "/person-using-mobile-phone-traveling-exotic-locatio.jpg"
+    image: "/CodigoHogarEstoy.png"
   },
   {
     id: "activar-tv",
     icon: Tv,
     title: "Activar TV",
     description: "Vincula por primera vez la aplicación de Netflix de un televisor con tu cuenta. Incluye escanear un código QR o ingresar una clave.",
-    image: "/smart-tv-connected-streaming-icons-modern-dark.jpg"
+    image: "/activarTv.png"
   }
 ]
 
@@ -282,8 +282,8 @@ function DashboardContent() {
                     size="sm"
                     onClick={() => executeSearch(option.id)}
                     className={`rounded-sm transition-all font-mono text-sm border-2 px-4 py-2 h-auto ${selectedOption === option.id
-                        ? "bg-neon-green text-white border-neon-green font-bold shadow-[0_0_20px_rgba(0,255,136,0.5)] hover:bg-neon-green-dim"
-                        : "bg-cyber-card/60 border-neon-green/40 text-cyber-light hover:bg-cyber-card hover:text-neon-green hover:border-neon-green"
+                      ? "bg-neon-green text-white border-neon-green font-bold shadow-[0_0_20px_rgba(0,255,136,0.5)] hover:bg-neon-green-dim"
+                      : "bg-cyber-card/60 border-neon-green/40 text-cyber-light hover:bg-cyber-card hover:text-neon-green hover:border-neon-green"
                       }`}
                   >
                     <option.icon className={`w-3.5 h-3.5 mr-2 ${selectedOption === option.id ? "text-white" : ""}`} />
@@ -388,8 +388,8 @@ function DashboardContent() {
                   <div className="w-full bg-cyber-darker p-4 md:p-6 rounded-md border border-neon-green/40 shadow-[0_0_15px_rgba(0,255,136,0.1)] max-h-[250px] overflow-y-auto styled-scrollbar">
                     <p
                       className={`font-bold text-white break-all select-all selection:bg-neon-green/30 ${searchResult.value!.length > 20
-                          ? "text-sm md:text-base leading-relaxed text-left"
-                          : "text-3xl md:text-4xl tracking-widest text-center"
+                        ? "text-sm md:text-base leading-relaxed text-left"
+                        : "text-3xl md:text-4xl tracking-widest text-center"
                         }`}
                     >
                       {searchResult.value}
